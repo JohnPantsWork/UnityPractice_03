@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,10 +9,39 @@ public class PlayerControls : MonoBehaviour
     [SerializeField] float xRange = 5f;
     [SerializeField] float yRange = 2.5f;
 
+    [SerializeField] float positionPitchFactor = -8f;
+    [SerializeField] float positionYawFactor = 9f;
+
+    [SerializeField] float controlPitchFactor = -10;
+    [SerializeField] float controlRollFactor = -10;
+
+    float xThrow;
+    float yThrow;
+
     void Update()
     {
-        float xThrow = Input.GetAxis("Horizontal");
-        float yThrow = Input.GetAxis("Vertical");
+        ProcessTranslation();
+        ProcessRotation();
+    }
+
+    void ProcessRotation()
+    {
+        float pitchDueToPosition = transform.localPosition.y * positionPitchFactor;
+        float yawDueToPosition = transform.localPosition.x * positionYawFactor;
+
+        float pitchDueToControl = yThrow * controlPitchFactor;
+        float rollDueToControl = xThrow * controlRollFactor;
+
+        float pitch = pitchDueToPosition + pitchDueToControl;
+        float yaw = yawDueToPosition;
+        float roll = rollDueToControl;
+        transform.localRotation = Quaternion.Euler(pitch, yaw, roll);
+    }
+
+    private void ProcessTranslation()
+    {
+        xThrow = Input.GetAxis("Horizontal");
+        yThrow = Input.GetAxis("Vertical");
 
         float xOffset = xThrow * Time.deltaTime * controlSpeed;
         float rawXPos = transform.localPosition.x + xOffset;
