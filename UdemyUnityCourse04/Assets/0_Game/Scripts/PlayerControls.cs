@@ -4,18 +4,23 @@ using UnityEngine;
 
 public class PlayerControls : MonoBehaviour
 {
-
-    void Start()
-    {
-
-    }
+    [SerializeField] float controlSpeed = 10f;
+    [SerializeField] float xRange = 5f;
+    [SerializeField] float yRange = 2.5f;
 
     void Update()
     {
         float xThrow = Input.GetAxis("Horizontal");
-        Debug.Log(xThrow);
-
         float yThrow = Input.GetAxis("Vertical");
-        Debug.Log(yThrow);
+
+        float xOffset = xThrow * Time.deltaTime * controlSpeed;
+        float rawXPos = transform.localPosition.x + xOffset;
+        float clampedXPos = Mathf.Clamp(rawXPos, -xRange, xRange);
+
+        float yOffset = yThrow * Time.deltaTime * controlSpeed;
+        float rawYPos = transform.localPosition.y + yOffset;
+        float clampedYPos = Mathf.Clamp(rawYPos, -yRange, yRange);
+
+        transform.localPosition = new Vector3(clampedXPos, clampedYPos, transform.localPosition.z);
     }
 }
