@@ -128,3 +128,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de91c8563de789340aa21ee68fccdd84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathVFX: {fileID: 3177829690364501501, guid: 3f0601df880f94f46af480360a792aa2, type: 3}
