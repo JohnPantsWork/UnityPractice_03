@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5212391010801841300}
   - component: {fileID: 5212391010801841299}
   - component: {fileID: 5212391010801841298}
+  - component: {fileID: 7669421309411227791}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -83,6 +84,66 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5212391010801841297}
   m_Enabled: 1
+--- !u!114 &7669421309411227791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5212391010801841297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volumeTrigger: {fileID: 5212391010801841300}
+  volumeLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  stopNaNPropagation: 1
+  finalBlitToCameraTarget: 0
+  antialiasingMode: 1
+  temporalAntialiasing:
+    jitterSpread: 0.75
+    sharpness: 0.25
+    stationaryBlending: 0.95
+    motionBlending: 0.85
+  subpixelMorphologicalAntialiasing:
+    quality: 2
+  fastApproximateAntialiasing:
+    fastMode: 1
+    keepAlpha: 0
+  fog:
+    enabled: 1
+    excludeSkybox: 1
+  debugLayer:
+    lightMeter:
+      width: 512
+      height: 256
+      showCurves: 1
+    histogram:
+      width: 512
+      height: 256
+      channel: 3
+    waveform:
+      exposure: 0.12
+      height: 256
+    vectorscope:
+      size: 256
+      exposure: 0.12
+    overlaySettings:
+      linearDepth: 0
+      motionColorIntensity: 4
+      motionGridSize: 64
+      colorBlindnessType: 0
+      colorBlindnessStrength: 1
+  m_Resources: {fileID: 11400000, guid: d82512f9c8e5d4a4d938b575d47f88d4, type: 2}
+  m_ShowToolkit: 0
+  m_ShowCustomSorter: 0
+  breakBeforeColorGrading: 0
+  m_BeforeTransparentBundles: []
+  m_BeforeStackBundles: []
+  m_AfterStackBundles: []
 --- !u!1 &5212391010907307753
 GameObject:
   m_ObjectHideFlags: 0
@@ -151,23 +212,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &83736332
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5565002504477430080}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5807d3e51499994ba4c01203b2d5b42, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  loadDelay: 1
-  crashParticle: {fileID: 0}
-  shipModels:
-  - {fileID: 5212391012746670000}
-  - {fileID: 5212391012055953343}
 --- !u!1001 &8000618366945352680
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -249,16 +293,6 @@ GameObject:
 --- !u!4 &9091484900961697661 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1237532623465112725, guid: 9552c038c9512cb4a82448780cc8d059, type: 3}
-  m_PrefabInstance: {fileID: 8000618366945352680}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &5212391012746670000 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2833267769725318232, guid: 9552c038c9512cb4a82448780cc8d059, type: 3}
-  m_PrefabInstance: {fileID: 8000618366945352680}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &5212391012055953343 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2833267769073923159, guid: 9552c038c9512cb4a82448780cc8d059, type: 3}
   m_PrefabInstance: {fileID: 8000618366945352680}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &5688754984403013177 stripped
