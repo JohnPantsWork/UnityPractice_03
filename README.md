@@ -1,4 +1,4 @@
-# UnityPractice_03
+# UnityPractice_03_arcadeflight
 Udemy course practice project.
 
 街機飛船遊戲
